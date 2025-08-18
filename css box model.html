@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>css box model demonstration </title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            padding: 20px;
+        }
+        
+        h2 {
+            color: #333;
+        }
+        
+        .box {
+            background-color: orange;
+            color: white;
+            font-weight: bold;
+            display: inline-block;
+            margin: 20px;
+            border: 5px solid yellow;
+            padding: 30px;
+            transition: all 0.3s ease;
+        }
+        
+        .controls {
+            margin: 20px;
+            max-width: 400px;
+            padding: 10px;
+            border-radius: 15px;
+            background: blue;
+        }
+        
+        .control {
+            display: flex;
+            align-items: center;
+            margin: 10px, 0;
+            justify-content: space-between;
+        }
+        
+        input[type="range"] {
+            flex: 1;
+            margin: 0 10px;
+        }
+        
+        .legend div {
+            margin: 0%5px 0;
+        }
+        
+        legend span {
+            display: inline-block;
+            width: 15px;
+            height: 15px;
+            margin-right: 10px;
+            vertical-align: middle;
+        }
+        
+        .margin-color {
+            border: 1px dashed#333;
+        }
+        
+        .border-color {
+            background: orange
+        }
+        
+        .padding-color {
+            background: blue;
+        }
+        
+        .content-color {
+            background: white;
+        }
+    </style>
+
+</head>
+
+<body>
+    <h2>CSS BOX MODEL DEMONSTRATION</h2>
+    <div id="box" class="box">content</div>
+    <div class="control">
+        <label for="margin">margin</label>
+        <input type="range" id="margin" min="0" max="50" value="20">
+        <span id="marginvalue">20px</span>
+
+
+    </div>
+    <div class="control">
+        <label for="border">border:</label>
+        <input type="range" id="border" min="0" max="20" value="5">
+        <span id="border value">5px</span>
+
+    </div>
+
+    <div class="control">
+        <label for="padding">padding</label>
+        <input type="range" id="border" min="0" max="50" value="30">
+        <span id="paddingvalue">30px</span>
+    </div>
+    <div class="legend">
+        <h3> box model compomnents</h3>
+        <div>
+            <span class="margin-color"></span><b>margin</b>-space outside the border(transparent)
+        </div>
+        <div>
+            <span class="border-color"></span><b>border</b>-sorrounds padding and content
+        </div>
+        <div>
+            <span class="padding-color"></span><b>padding</b>-space between border and content
+        </div>
+        <div>
+            <span class="content-color"></span><b>content</b>-actual content of the box
+        </div>
+    </div>
+    <script>
+        const box = document.getElementById("box");
+        const margininput = document.getElementById("margin");
+        const borderinput = document.getElementById("border");
+        const paddinginput = document.getElementById("padding");
+        const marginvalue = document.getElementById("marginvalue");
+        const bordervalue = document.getElementById("bordervalue");
+        const paddingvalue = document.getElementById("paddingvalue");
+
+        function updateBox() {
+            box.style.margin = marginInput.value + "px";
+            box.style.borderWidth = borderInput.value + "px";
+            box.style.padding = paddingInput.value + "px";
+
+            marginValue.textContent = marginInput.value + "px";
+            borderValue.textContent = borderInput.value + "px";
+            paddingValue.textContent = paddingInput.value + "px";
+        }
+
+        marginInput.addEventListener("input", updateBox);
+        borderInput.addEventListener("input", updateBox);
+        paddingInput.addEventListener("input", updateBox);
+
+        // Initialize values
+        updateBox();
+    </script>
+
+
+
+</body>
+
+</html>
